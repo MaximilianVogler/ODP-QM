@@ -486,7 +486,7 @@ fid=fopen('texfile.tex','a');
 
 %load tax_iteration_results_optflat.mat;
 
-% fprintf(fid,'\\begin{table}[p] \n');
+% fprintf(fid,'\\begin{table}[p]Â \n');
 % fprintf(fid,'\\begin{center} \n \\begin{tabular}{l | c | c | c | c } \n \\hline \n');
 % fprintf(fid,' & No tax & Optimal policy & Optimal SS tax & Best flat policy \\\\ \n');
 % fprintf(fid,'\\hline \n');
