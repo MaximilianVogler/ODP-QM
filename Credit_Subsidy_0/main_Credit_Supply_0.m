@@ -1,7 +1,4 @@
-% Updates v7 to include
-% (i) Changes sign of matrix A
-% (ii) Pareto weight on entrepreneurs and workers
-% (iii) Variable mass of workers L
+
 
 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -59,7 +56,6 @@ for ittax=1:length(tax_vec_ss)
     taul = 0;
     credk=tax_vec_ss(ittax);
     gg_sparse=sparse(ones(I*J,1)./(I*J*dz*da_stacked)); %Uniform guess
-    %fprintf('Trying credit subsidy = %5.3f \n',credk);
     run opttax_noc_steadystate.m;
     welfare_tot_ss = (1-paretoweight_workers)*welfare_entrepreneurs+paretoweight_workers*welfare_workers;
     welfare_vec_ss(ittax) = welfare_tot_ss;
@@ -243,9 +239,6 @@ timer_findpath = tic;
 disp('Iteration    Max wage update    Max ES');
 parfor ittax=1:gp_tot_tr
     
-    %fprintf('Starting iteration %3.0f of %3.0f \n',ittax,gp_tot); %Print progression
-    %fprintf('\b|\n');
-    
     % PARAMETERS
     taul = 0;
     taul_bar_tr = taubar_mat_tr(ittax); 
@@ -261,14 +254,10 @@ parfor ittax=1:gp_tot_tr
     welfare_workers_mat2_tr(ittax)=welfare_mat_tr(:,2);
     welfare_entrepreneurs_tr(ittax)=welfare_mat_tr(:,3);
     flag_mat_tr(ittax)=flag; %=1 if no convergence in steady state, =2 if no convergence in transition
-    %maxES_mat(ittax)=maxESdiff;
-    %dcompleted_tr(ittax)=1;
-    %fprintf('Iteration %d/%d done!',sum(sum(sum(dcompleted))),gp_tot);
     fprintf('Iteration %d/%d done! \n',ittax,gp_tot_tr);
 end
 disp('Done!');
 fprintf('Total time to find optimal credit subsidy schedule = %3.0f minutes and %2.0f seconds \n',floor(toc(timer_findpath)/60),rem(toc(timer_findpath),60))
-%fprintf('Total elapsed time to find optimal credit subsidy schedule = %3.0f minutes and %2.0f seconds \n',toc(timer_findpath));
 
 % Welfare measures
 welfaremat_workers_tr = welfare_workers_mat2_tr;
@@ -322,9 +311,7 @@ timer_findpath = tic;
 % fprintf(['\n' repmat('.',1,gp_tot) '\n\n']);
 disp('Iteration    Max wage update    Max ES');
 parfor ittax=1:gp_tot
-    
-    %fprintf('Starting iteration %3.0f of %3.0f \n',ittax,gp_tot); %Print progression
-    %fprintf('\b|\n');
+
     
     % PARAMETERS
     taul = 0;
@@ -348,7 +335,6 @@ parfor ittax=1:gp_tot
 end
 disp('Done!');
 fprintf('Total time to find optimal credit subsidy schedule = %3.0f minutes and %2.0f seconds \n',floor(toc(timer_findpath)/60),rem(toc(timer_findpath),60))
-%fprintf('Total elapsed time to find optimal credit subsidy schedule = %3.0f minutes and %2.0f seconds \n',toc(timer_findpath));
 
 % Welfare measures
 welfaremat_workers = welfare_workers_mat2;
@@ -827,7 +813,7 @@ fid=fopen('texfile.tex','a');
 
 %load tax_iteration_results_optflat.mat;
 
-% fprintf(fid,'\\begin{table}[p] \n');
+% fprintf(fid,'\\begin{table}[p]Â \n');
 % fprintf(fid,'\\begin{center} \n \\begin{tabular}{l | c | c | c | c } \n \\hline \n');
 % fprintf(fid,' & No tax & Optimal policy & Optimal SS tax & Best flat policy \\\\ \n');
 % fprintf(fid,'\\hline \n');
