@@ -1,6 +1,3 @@
-% Same as v4, but prepared for parfor loop over taxes
-% Put inside a function wrapping because this is needed for parfor
-
 function [welfare_mat,gg,w_t,pi_t,flag,various] = opttax_noc_transition(gg_guess,gg_initial,taulvec)
 
 
