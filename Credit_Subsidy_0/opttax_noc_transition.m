@@ -1,6 +1,3 @@
-% Same as v4, but prepared for parfor loop over taxes
-% Put inside a function wrapping because this is needed for parfor
-
 function [welfare_mat,gg,w_t,consumption_workers,flag,various] = opttax_noc_transition(gg_guess,gg_initial,credkvec)
 
 
@@ -8,7 +5,6 @@ function [welfare_mat,gg,w_t,consumption_workers,flag,various] = opttax_noc_tran
 % FINAL VALUE FUNCTION %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 run opttax_noc_parameters;
-%load test.mat;
 gg_sparse = sparse(gg_guess); %Guess distribution from steady state without tax
 credk = credkvec(N);
 taul = 0;
