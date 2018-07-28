@@ -809,19 +809,6 @@ fid=fopen('texfile.tex','a');
 
 % Table comparing welfare of various credit subsidy schedules
 
-%load tax_iteration_results_optflat.mat;
-
-% fprintf(fid,'\\begin{table}[p] \n');
-% fprintf(fid,'\\begin{center} \n \\begin{tabular}{l | c | c | c | c } \n \\hline \n');
-% fprintf(fid,' & No tax & Optimal policy & Optimal SS tax & Best flat policy \\\\ \n');
-% fprintf(fid,'\\hline \n');
-% fprintf(fid,'$\\tau_0$ & %7.5f & %7.5f & %7.5f & %7.5f  \\\\ \n',taulvec_lf(1),taulvec_opt(1),taulvec_optss(1),taulvec_optflat(1));
-% fprintf(fid,'$\\bar{\\tau}$ & %7.5f & %7.5f & %7.5f & %7.5f \\\\ \n',taulvec_lf(end),taulvec_opt(end),taulvec_optss(end),taulvec_optflat(end));
-% fprintf(fid,'Half life & - & %7.5f & - & -  \\\\ \n',halflife_opt);
-% fprintf(fid,'Welfare & %7.5f & %7.5f & %7.5f & %7.5f \\\\ \n',welfare_lf,welfare_opt,welfare_optss,welfare_optflat);
-% fprintf(fid,'\\hline \n \\end{tabular} \n \\end{center} \n');
-% fprintf(fid,'\\end{table} \n \n');
-
 fprintf(fid,'\\section{Tables with  Results} \n '); 
 
 %fprintf(fid,'\\begin{table}[p]\n');
