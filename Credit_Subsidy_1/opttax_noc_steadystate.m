@@ -1,5 +1,3 @@
-% Based on steadystate_noc_v2.m
-
 % disp('Iteration    Wage    VF steps    DIST steps    Excess supply');
 flag=0;
 
