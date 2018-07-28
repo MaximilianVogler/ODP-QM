@@ -1,8 +1,3 @@
-% Updates v7 to include
-% (i) Changes sign of matrix A
-% (ii) Pareto weight on entrepreneurs and workers
-% (iii) Variable mass of workers L
-
 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % FILE MANAGEMENT AND HOUSEKEEPING      %
@@ -268,7 +263,6 @@ parfor ittax=1:gp_tot_tr
 end
 disp('Done!');
 fprintf('Total time to find optimal credit subsidy schedule = %3.0f minutes and %2.0f seconds \n',floor(toc(timer_findpath)/60),rem(toc(timer_findpath),60))
-%fprintf('Total elapsed time to find optimal credit subsidy schedule = %3.0f minutes and %2.0f seconds \n',toc(timer_findpath));
 
 % Welfare measures
 welfaremat_workers_tr = welfare_workers_mat2_tr;
@@ -323,8 +317,6 @@ timer_findpath = tic;
 disp('Iteration    Max wage update    Max ES');
 parfor ittax=1:gp_tot
     
-    %fprintf('Starting iteration %3.0f of %3.0f \n',ittax,gp_tot); %Print progression
-    %fprintf('\b|\n');
     
     % PARAMETERS
     taul = 0;
@@ -348,7 +340,6 @@ parfor ittax=1:gp_tot
 end
 disp('Done!');
 fprintf('Total time to find optimal credit subsidy schedule = %3.0f minutes and %2.0f seconds \n',floor(toc(timer_findpath)/60),rem(toc(timer_findpath),60))
-%fprintf('Total elapsed time to find optimal credit subsidy schedule = %3.0f minutes and %2.0f seconds \n',toc(timer_findpath));
 
 % Welfare measures
 welfaremat_workers = welfare_workers_mat2;
@@ -824,19 +815,6 @@ copyfile('output.tex','texfile.tex');
 fid=fopen('texfile.tex','a');
 
 % Table comparing welfare of various credit subsidy schedules
-
-%load tax_iteration_results_optflat.mat;
-
-% fprintf(fid,'\\begin{table}[p] \n');
-% fprintf(fid,'\\begin{center} \n \\begin{tabular}{l | c | c | c | c } \n \\hline \n');
-% fprintf(fid,' & No tax & Optimal policy & Optimal SS tax & Best flat policy \\\\ \n');
-% fprintf(fid,'\\hline \n');
-% fprintf(fid,'$\\tau_0$ & %7.5f & %7.5f & %7.5f & %7.5f  \\\\ \n',taulvec_lf(1),taulvec_opt(1),taulvec_optss(1),taulvec_optflat(1));
-% fprintf(fid,'$\\bar{\\tau}$ & %7.5f & %7.5f & %7.5f & %7.5f \\\\ \n',taulvec_lf(end),taulvec_opt(end),taulvec_optss(end),taulvec_optflat(end));
-% fprintf(fid,'Half life & - & %7.5f & - & -  \\\\ \n',halflife_opt);
-% fprintf(fid,'Welfare & %7.5f & %7.5f & %7.5f & %7.5f \\\\ \n',welfare_lf,welfare_opt,welfare_optss,welfare_optflat);
-% fprintf(fid,'\\hline \n \\end{tabular} \n \\end{center} \n');
-% fprintf(fid,'\\end{table} \n \n');
 
 fprintf(fid,'\\section{Tables with  Results} \n '); 
 
