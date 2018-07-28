@@ -1,5 +1,3 @@
-
-
 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % FILE MANAGEMENT AND HOUSEKEEPING      %
